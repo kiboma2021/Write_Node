@@ -4,15 +4,15 @@ import Logo from '../assets/logo.jpeg'
 
 export const Header = () => {
   return (
-    <div>
-        <Link>
-            <img src={Logo} alt="NoteBook" />
+    <div className='flex justify-between items-center m-10'>
+        <Link className='flex gap-3 items-center text-3xl '>
+            <img className='h-12' src={Logo} alt="NoteBook" />
             NoteBook
         </Link>
-        <div>
-            <NavLink to='/'>Home</NavLink>
-            <NavLink to='/'>Create</NavLink>
-            <NavLink to='/'>Login</NavLink>
+        <div className='text-2xl'>
+            <NavLink to='/' className='mx-2'>Home</NavLink>
+            <NavLink to='/' className='mx-2'>Create</NavLink>
+            <NavLink to='/' className='mx-2'>Login</NavLink>
         </div>
       
     </div>

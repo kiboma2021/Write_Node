@@ -4,11 +4,11 @@ import './App.css';
 
 function App() {
   return (
-    <main>
+    <div>
       <Header />
       <AllRoutes />
       <Footer />
-    </main>
+    </div>
   );
 }
 

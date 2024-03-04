@@ -1,9 +1,9 @@
 
 export const Home = () => {
   return (
-    <div>
+    <main>
         <h1 className="text-2xl">Home Page</h1>
       
-    </div>
+    </main>
   )
 }

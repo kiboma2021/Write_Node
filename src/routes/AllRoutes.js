@@ -4,9 +4,9 @@ import { Home,CreatePost,PageNotFound } from '../pages';
 export const AllRoutes = () => {
   return (
     <Routes>
-        <Route path='/' component={<Home title='Home' />} />
-        <Route path='/post' component={<CreatePost title='Add Post' />} />
-        <Route path='*' component={<PageNotFound title='404!' />} />
+        <Route path='/' element={<Home title='Home' />} />
+        <Route path='/post' element={<CreatePost title='Add Post' />} />
+        <Route path='*' element={<PageNotFound title='404!' />} />
       
     </Routes>
   )

@@ -11,7 +11,7 @@ export const Header = () => {
         </Link>
         <div className='text-2xl'>
             <NavLink to='/' className='mx-2'>Home</NavLink>
-            <NavLink to='/' className='mx-2'>Create</NavLink>
+            <NavLink to='/post' className='mx-2'>Create</NavLink>
             <NavLink to='/' className='mx-2'>Login</NavLink>
         </div>
       

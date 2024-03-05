@@ -1,11 +1,9 @@
 import React from 'react'
 
-const NodeCard = () => {
+export const NodeCard = () => {
   return (
     <div>
       
     </div>
   )
 }
-
-export default NodeCard

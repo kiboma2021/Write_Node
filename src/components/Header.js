@@ -25,7 +25,7 @@ export const Header = ({darkMode, setdarkMode}) => {
             </span>
             <NavLink to='/' className='mx-2'>Home</NavLink>
             <NavLink to='/post' className='mx-2'>Create</NavLink>
-            <NavLink to='/' className='mx-2'>Login</NavLink>
+            <Link to='/' className='mx-2 p-2 text-white rounded-xl bg-blue-500'><i class="bi bi-google" />Login</Link>
         </div>
       
     </div>

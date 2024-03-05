@@ -8,7 +8,15 @@ export const Home = () => {
   ];
   return (
     <main>
-        <NodeCard />
+      <div>
+        { posts && posts.map(post => 
+        <div key={post.id}>
+          <NodeCard post={post} />  
+        </div>
+        )}
+      </div>
+
+        
       
     </main>
   )

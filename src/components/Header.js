@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { Link,NavLink } from 'react-router-dom'
 import Logo from '../assets/logo.jpeg'
 
-export const Header = () => {
-  const [darkMode, setdarkMode ] = useState(JSON.parse(localStorage.getItem("darkMode")) || false);
+export const Header = ({darkMode, setdarkMode}) => {
+ // const [darkMode, setdarkMode ] = useState(JSON.parse(localStorage.getItem("darkMode")) || false);
 
   useEffect(() => {
     localStorage.setItem("darkMode", JSON.stringify(darkMode));
@@ -14,7 +14,7 @@ export const Header = () => {
     }
   },[darkMode]);
   return (
-    <div className='flex justify-between items-center flex-wrap m-10 dark:bg-slate-900 dark:text-white'>
+    <div className='flex justify-between items-center flex-wrap p-10'>
         <Link to='/' className='flex gap-3 items-center text-3xl '>
             <img className='h-12' src={Logo} alt="NoteBook" />
             NoteBook

@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link,NavLink } from 'react-router-dom'
 import Logo from '../assets/logo.jpeg'
 
 export const Header = () => {
+  const [darkMode, setdarkMode ] = useState(false);
   return (
     <div className='flex justify-between items-center m-10'>
         <Link to='/' className='flex gap-3 items-center text-3xl '>
@@ -10,6 +11,9 @@ export const Header = () => {
             NoteBook
         </Link>
         <div className='text-2xl'>
+            <span>{darkMode?(<i class="bi bi-sun-fill mx-2" />):(<i className="bi bi-moon-stars-fill mx-2" />)}
+              
+            </span>
             <NavLink to='/' className='mx-2'>Home</NavLink>
             <NavLink to='/post' className='mx-2'>Create</NavLink>
             <NavLink to='/' className='mx-2'>Login</NavLink>

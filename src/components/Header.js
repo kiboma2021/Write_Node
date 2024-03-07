@@ -6,7 +6,7 @@ import Logo from '../assets/logo.jpeg'
 
 export const Header = ({darkMode, setdarkMode}) => {
  
-  const [isAuth, setIsAuth] = useState(false);
+  const [isAuth, setIsAuth] = useState(JSON.parse(localStorage.getItem("Authenticated")) || false);
 
   useEffect(() => {
     localStorage.setItem("darkMode", JSON.stringify(darkMode));
@@ -18,14 +18,15 @@ export const Header = ({darkMode, setdarkMode}) => {
   },[darkMode]);
 
   function handleLogin(){
-    signInWithPopup(auth, provider).then((result) => {
-      console.log(result);
+    signInWithPopup(auth, provider).then(() => {
       setIsAuth(true);
+      localStorage.setItem("Authenticated", JSON.stringify(isAuth));
     });
   }
   function handleLogout(){
     signOut(auth);
     setIsAuth(false);
+    localStorage.setItem("Authenticated", JSON.stringify(isAuth));
   };
 
 

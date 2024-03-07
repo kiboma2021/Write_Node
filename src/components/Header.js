@@ -22,8 +22,14 @@ export const Header = ({darkMode, setdarkMode}) => {
       console.log(result);
       setIsAuth(true);
     });
-
   }
+  function handleLogout(){
+    signOut(auth);
+    setIsAuth(false);
+  };
+
+
+  
 
   return (
     <div className='flex justify-between items-center flex-wrap p-10'>
@@ -39,7 +45,7 @@ export const Header = ({darkMode, setdarkMode}) => {
             {isAuth?(
               <>
                 <NavLink to='/post' className='mx-2'>Create</NavLink>
-                <button className='mx-2 p-2 text-white rounded-xl bg-blue-500'><i className="bi bi-box-arrow-right" />Logout</button>
+                <button onClick={handleLogout} className='mx-2 p-2 text-white rounded-xl bg-blue-500'><i className="bi bi-box-arrow-right" />Logout</button>
               </>
             ):(
               <button onClick={handleLogin} className='mx-2 p-2 text-white rounded-xl bg-blue-500'><i className="bi bi-google" />Login</button>

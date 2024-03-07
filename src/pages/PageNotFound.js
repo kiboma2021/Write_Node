@@ -1,7 +1,9 @@
-import { Link } from 'react-router-dom'
-import NotFoundImage from '../assets/pageNotFound.png'
+import { Link } from 'react-router-dom';
+import { useTitle } from '../hooks/useTitle';
+import NotFoundImage from '../assets/pageNotFound.png';
 
-export const PageNotFound = () => {
+export const PageNotFound = ({title}) => {
+  useTitle({title});
   return (
     <main>
       <Link to="/" className='w-full flex justify-center'>

@@ -1,6 +1,8 @@
 import React from 'react'
+import { useTitle } from '../hooks/useTitle';
 
-export const CreatePost = () => {
+export const CreatePost = ({title}) => {
+    useTitle({title});
   return (
       <main>
         <div className='w-1/2 '>

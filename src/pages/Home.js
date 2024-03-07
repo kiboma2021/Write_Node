@@ -2,11 +2,15 @@ import { useEffect, useState } from "react";
 import { getDocs, collection } from "firebase/firestore";
 import { db } from "../firebase/config"
 import { NodeCard } from "../components";
+import { useTitle } from "../hooks/useTitle";
 
-
-export const Home = () => {
+export const Home = ({title}) => {
   const [posts, setPosts ] = useState([])
   const postsRef = collection(db, "posts");
+
+  useTitle({title});
+
+  
 
   useEffect(() => {
     async function getPosts() {

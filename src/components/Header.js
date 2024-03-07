@@ -20,12 +20,12 @@ export const Header = ({darkMode, setdarkMode}) => {
             NoteBook
         </Link>
         <div className='text-2xl'>
-            <span onClick={()=>setdarkMode(!darkMode)}>{darkMode?(<i class="bi bi-sun-fill mx-2" />):(<i className="bi bi-moon-stars-fill mx-2" />)}
+            <span onClick={()=>setdarkMode(!darkMode)}>{darkMode?(<i className="bi bi-sun-fill mx-2" />):(<i className="bi bi-moon-stars-fill mx-2" />)}
               
             </span>
             <NavLink to='/' className='mx-2'>Home</NavLink>
             <NavLink to='/post' className='mx-2'>Create</NavLink>
-            <Link to='/' className='mx-2 p-2 text-white rounded-xl bg-blue-500'><i class="bi bi-google" />Login</Link>
+            <Link to='/' className='mx-2 p-2 text-white rounded-xl bg-blue-500'><i className="bi bi-google" />Login</Link>
         </div>
       
     </div>

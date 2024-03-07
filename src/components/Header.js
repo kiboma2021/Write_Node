@@ -3,7 +3,8 @@ import { Link,NavLink } from 'react-router-dom'
 import Logo from '../assets/logo.jpeg'
 
 export const Header = ({darkMode, setdarkMode}) => {
- // const [darkMode, setdarkMode ] = useState(JSON.parse(localStorage.getItem("darkMode")) || false);
+ 
+  const isAuth = true;
 
   useEffect(() => {
     localStorage.setItem("darkMode", JSON.stringify(darkMode));
@@ -24,8 +25,14 @@ export const Header = ({darkMode, setdarkMode}) => {
               
             </span>
             <NavLink to='/' className='mx-2'>Home</NavLink>
-            <NavLink to='/post' className='mx-2'>Create</NavLink>
-            <Link to='/' className='mx-2 p-2 text-white rounded-xl bg-blue-500'><i className="bi bi-google" />Login</Link>
+            {isAuth?(
+              <>
+                <NavLink to='/post' className='mx-2'>Create</NavLink>
+                <button className='mx-2 p-2 text-white rounded-xl bg-blue-500'><i className="bi bi-box-arrow-right" />Logout</button>
+              </>
+            ):(
+              <button className='mx-2 p-2 text-white rounded-xl bg-blue-500'><i className="bi bi-google" />Login</button>
+            )}
         </div>
       
     </div>

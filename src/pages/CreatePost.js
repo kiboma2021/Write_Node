@@ -1,5 +1,4 @@
-import React from 'react'
-import { addDoc, collection } from 'firebase/firestore';
+import { addDoc, collection,serverTimestamp } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
 import { db, auth } from '../firebase/config';
 import { useTitle } from '../hooks/useTitle';
@@ -15,6 +14,8 @@ export const CreatePost = ({title}) => {
         const document = {
             title: event.target.title.value,
             body: event.target.body.value,
+            createdAt: serverTimestamp(),
+            updatedAt: serverTimestamp(),
             author: {
                 name: auth.currentUser.displayName,
                 id: auth.currentUser.uid

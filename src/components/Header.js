@@ -20,13 +20,13 @@ export const Header = ({darkMode, setdarkMode}) => {
   function handleLogin(){
     signInWithPopup(auth, provider).then(() => {
       setIsAuth(true);
-      localStorage.setItem("Authenticated", JSON.stringify(isAuth));
+      localStorage.setItem("Authenticated", true);
     });
   }
   function handleLogout(){
     signOut(auth);
     setIsAuth(false);
-    localStorage.setItem("Authenticated", JSON.stringify(isAuth));
+    localStorage.setItem("Authenticated", false);
   };
 
 

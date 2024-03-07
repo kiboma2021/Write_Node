@@ -14,8 +14,8 @@ export const NodeCard = ({post}) => {
           </div>         
         </div>
         <div className="flex flex-col justify-end p-4">
-        <span><i class="bi bi-pencil-square text-2xl text-red-600 "></i></span>
-          <span><i class="bi bi-trash text-2xl text-red-600 "></i></span>
+        <span><i className="bi bi-pencil-square text-2xl text-red-600 "></i></span>
+          <span><i className="bi bi-trash text-2xl text-red-600 "></i></span>
         </div>
       </div>
     </div>

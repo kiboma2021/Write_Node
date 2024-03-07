@@ -1,9 +1,12 @@
 import React from 'react'
 import moment from 'moment'; 
+import { auth } from '../firebase/config';
 
 export const NodeCard = ({post}) => {
   const createdAt = post.createdAt.toMillis();
   const updatedAt = post.updatedAt.toMillis();
+
+  const isAuth = JSON.parse(localStorage.getItem("Authenticated") || false);
 
   return (
     <div className='flex flex-wrap justify-center'>
@@ -17,10 +20,12 @@ export const NodeCard = ({post}) => {
             <span className="bg-yellow-300 mr-5 p-2 rounded-xl dark:bg-yellow-600">Date Updated: {moment(updatedAt).format('MMMM Do YYYY, h:mm:ss a')}</span>
           </div>         
         </div>
+        { isAuth && (post.author.id==auth.currentUser.uid) && (
         <div className="flex flex-col justify-end p-4">
-        <span><i className="bi bi-pencil-square text-2xl text-red-600 "></i></span>
+          <span><i className="bi bi-pencil-square text-2xl text-red-600 "></i></span>
           <span><i className="bi bi-trash text-2xl text-red-600 "></i></span>
         </div>
+        )}
       </div>
     </div>
   )

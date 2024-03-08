@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { getDocs, collection } from "firebase/firestore";
 import { db } from "../firebase/config"
 import { NodeCard } from "../components";
@@ -6,7 +6,8 @@ import { useTitle } from "../hooks/useTitle";
 
 export const Home = ({title}) => {
   const [posts, setPosts ] = useState([])
-  const postsRef = collection(db, "posts");
+  const postsRef = useRef(collection(db, "posts"));
+  const [toogleUpdate, setToogleUpdate] = useState(false);
 
   useTitle({title});
 
@@ -14,21 +15,22 @@ export const Home = ({title}) => {
 
   useEffect(() => {
     async function getPosts() {
-      const data = await getDocs(postsRef);
+      const data = await getDocs(postsRef.current);
       setPosts(data.docs.map((document) => (
         {...document.data(),id: document.id}
       )
       ));
     }
+    console.log("================================================");
     getPosts()
-  },[]);
+  },[postsRef,toogleUpdate]);
 
   return (
     <main>
       <div>
         { posts && posts.map(post => 
         <div key={post.id}>
-          <NodeCard post={post} />  
+          <NodeCard post={post} toogleUpdate={toogleUpdate} setToogleUpdate={setToogleUpdate} />  
         </div>
         )}
       </div>

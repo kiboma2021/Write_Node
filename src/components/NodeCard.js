@@ -1,12 +1,23 @@
 import React from 'react'
-import moment from 'moment'; 
-import { auth } from '../firebase/config';
+import moment from 'moment';
+import { doc, deleteDoc, } from 'firebase/firestore';
+import { auth,db } from '../firebase/config';
 
-export const NodeCard = ({post}) => {
+export const NodeCard = ({post,toogleUpdate,setToogleUpdate}) => {
   const createdAt = post.createdAt.toMillis();
   const updatedAt = post.updatedAt.toMillis();
 
   const isAuth = JSON.parse(localStorage.getItem("Authenticated") || false);
+
+  async function handleDelete(){
+    const get_doc = doc(db, "posts",post.id) 
+    await deleteDoc(get_doc);
+    setToogleUpdate(!toogleUpdate);
+  }
+
+  // async function handleEdit(){
+  //   const get_doc = doc(db, "posts",post.id);
+  // }
 
   return (
     <div className='flex flex-wrap justify-center'>
@@ -20,10 +31,10 @@ export const NodeCard = ({post}) => {
             <span className="bg-yellow-300 mr-5 p-2 rounded-xl dark:bg-yellow-600">Date Updated: {moment(updatedAt).format('MMMM Do YYYY, h:mm:ss a')}</span>
           </div>         
         </div>
-        { isAuth && (post.author.id==auth.currentUser.uid) && (
+        { isAuth && (post.author.id===auth.currentUser.uid) && (
         <div className="flex flex-col justify-end p-4">
           <span><i className="bi bi-pencil-square text-2xl text-red-600 "></i></span>
-          <span><i className="bi bi-trash text-2xl text-red-600 "></i></span>
+          <span onClick={handleDelete}><i className="bi bi-trash text-2xl text-red-600 "></i></span>
         </div>
         )}
       </div>
